@@ -58,9 +58,9 @@ void  INTERRUPT_Initialize (void)
 void __interrupt() INTERRUPT_InterruptManager (void)
 {
     // interrupt handler
-    if(PIE3bits.TMR0IE == 1 && PIR3bits.TMR0IF == 1)
+    if(PIE1bits.ADTIE == 1 && PIR1bits.ADTIF == 1)
     {
-        TMR0_ISR();
+        ADCC_ThresholdISR();
     }
     else
     {

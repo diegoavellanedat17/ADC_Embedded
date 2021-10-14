@@ -50,10 +50,13 @@
 
 #include <xc.h>
 #include "adcc.h"
+#include "uart1.h"
 
+int global_counter =0;
 /**
   Section: ADCC Module Variables
 */
+void (*ADCC_ADTI_InterruptHandler)(void);
 
 /**
   Section: ADCC Module APIs
@@ -76,8 +79,8 @@ void ADCC_Initialize(void)
     ADSTPTH = 0x00;
     // ADACC 0; 
     ADACCU = 0x00;
-    // ADRPT 0; 
-    ADRPT = 0x00;
+    // ADRPT 8; 
+    ADRPT = 0x08;
     // ADPCH ANA0; 
     ADPCH = 0x00;
     // ADACQ 0; 
@@ -92,22 +95,28 @@ void ADCC_Initialize(void)
     ADPREH = 0x00;
     // ADDSEN disabled; ADGPOL digital_low; ADIPEN disabled; ADPPOL Vss; 
     ADCON1 = 0x00;
-    // ADCRS 0; ADMD Basic_mode; ADACLR disabled; ADPSIS RES; 
-    ADCON2 = 0x00;
-    // ADCALC First derivative of Single measurement; ADTMD disabled; ADSOI ADGO not cleared; 
-    ADCON3 = 0x00;
+    // ADCRS 3; ADMD Low_pass_filter_mode; ADACLR disabled; ADPSIS RES; 
+    ADCON2 = 0x34;
+    // ADCALC First derivative of Single measurement; ADTMD enabled; ADSOI ADGO not cleared; 
+    ADCON3 = 0x07;
     // ADMATH registers not updated; 
     ADSTAT = 0x00;
     // ADNREF VSS; ADPREF VDD; 
     ADREF = 0x00;
-    // ADACT disabled; 
-    ADACT = 0x00;
+    // ADACT TMR2; 
+    ADACT = 0x04;
     // ADCS FOSC/2; 
     ADCLK = 0x00;
     // ADGO stop; ADFM right; ADON enabled; ADCS FOSC/ADCLK; ADCONT disabled; 
     ADCON0 = 0x84;
     
 
+    // Clear the ADC Threshold interrupt flag
+    PIR1bits.ADTIF = 0;
+    // Enabling ADCC threshold interrupt.
+    PIE1bits.ADTIE = 1;
+
+    ADCC_SetADTIInterruptHandler(ADCC_DefaultInterruptHandler);
 }
 
 void ADCC_StartConversion(adcc_channel_t channel)
@@ -297,6 +306,48 @@ uint8_t ADCC_GetConversionStageStatus(void)
 }
 
 
+void ADCC_ThresholdISR(void)
+{
+    // Clear the ADCC Threshold interrupt flag
+    PIR1bits.ADTIF = 0;
+
+    if (ADCC_ADTI_InterruptHandler)
+        ADCC_ADTI_InterruptHandler();
+}
+
+void ADCC_SetADTIInterruptHandler(void (* InterruptHandler)(void)){
+    ADCC_ADTI_InterruptHandler = InterruptHandler;
+}
+void ADCC_DefaultInterruptHandler(void){
+    // add your ADCC interrupt custom code
+    // or set custom function using ADCC_SetADIInterruptHandler() or ADCC_SetADTIInterruptHandler()
+    // Aca estamos viendo la frecuencia de muestreo aprox 1kHz
+    LATAbits.LATA5 = ~LATAbits.LATA5;
+    
+    if(global_counter < 10){
+        global_counter ++;
+    }
+    
+    else{
+        global_counter = 0;
+         if(UART1_is_tx_ready())
+        {
+            
+       
+            //Salida con sin filtro
+            //UART1_Write(ADRESH);
+            //UART1_Write(ADRESL);
+            // Salida con Filtro
+           
+            UART1_Write(ADFLTRH);
+            UART1_Write(ADFLTRL);
+            
+        }
+    }
+    
+      
+
+}
 /**
  End of File
 */

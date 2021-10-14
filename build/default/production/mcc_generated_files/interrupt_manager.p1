@@ -16,43 +16,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _INTCON0bits `VS2089 ~T0 @X0 0 e@16338 ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
-"3644
-[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 3644:     struct {
-[s S164 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S164 . I2C1TXIE I2C1IE I2C1EIE U1RXIE U1TXIE U1EIE U1IE TMR0IE ]
-"3654
-[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 3654:     struct {
-[s S165 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S165 . RXB0IE RXB1IE TXB0IE TXB1IE TXB2IE ]
-"3661
-[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 3661:     struct {
-[s S166 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S166 . . RXBNIE . TXBNIE ]
-"3643
-[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 3643: typedef union {
-[u S163 `S164 1 `S165 1 `S166 1 ]
-[n S163 . . . . ]
-"3668
-[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 3668: extern volatile PIE3bits_t PIE3bits __attribute__((address(0x3993)));
-[v _PIE3bits `VS163 ~T0 @X0 0 e@14739 ]
-"4297
-[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 4297:     struct {
-[s S191 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S191 . I2C1TXIF I2C1IF I2C1EIF U1RXIF U1TXIF U1EIF U1IF TMR0IF ]
-"4307
-[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 4307:     struct {
-[s S192 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S192 . . RXBNIF . TXBNIF ]
-"4296
-[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 4296: typedef union {
-[u S190 `S191 1 `S192 1 ]
-[n S190 . . . ]
-"4314
-[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 4314: extern volatile PIR3bits_t PIR3bits __attribute__((address(0x39A3)));
-[v _PIR3bits `VS190 ~T0 @X0 0 e@14755 ]
-"291 mcc_generated_files/tmr0.h
-[; ;mcc_generated_files/tmr0.h: 291: void TMR0_ISR(void);
-[v _TMR0_ISR `(v ~T0 @X0 0 ef ]
+"3480
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 3480:     struct {
+[s S157 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S157 . INT0IE ZCDIE ADIE ADTIE C1IE SMT1IE SMT1PRAIE SMT1PWAIE ]
+"3490
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 3490:     struct {
+[s S158 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S158 . . TX1IE RC1IE . PSPIE ]
+"3497
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 3497:     struct {
+[s S159 :4 `uc 1 :1 `uc 1 ]
+[n S159 . . TXIE ]
+"3479
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 3479: typedef union {
+[u S156 `S157 1 `S158 1 `S159 1 ]
+[n S156 . . . . ]
+"3502
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 3502: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x3991)));
+[v _PIE1bits `VS156 ~T0 @X0 0 e@14737 ]
+"4133
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 4133:     struct {
+[s S184 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S184 . INT0IF ZCDIF ADIF ADTIF C1IF SMT1IF SMT1PRAIF SMT1PWAIF ]
+"4143
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 4143:     struct {
+[s S185 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S185 . . TX1IF RC1IF . PSPIF ]
+"4150
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 4150:     struct {
+[s S186 :4 `uc 1 :1 `uc 1 ]
+[n S186 . . TXIF ]
+"4132
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 4132: typedef union {
+[u S183 `S184 1 `S185 1 `S186 1 ]
+[n S183 . . . . ]
+"4155
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 4155: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x39A1)));
+[v _PIR1bits `VS183 ~T0 @X0 0 e@14753 ]
+"861 mcc_generated_files/adcc.h
+[; ;mcc_generated_files/adcc.h: 861: void ADCC_ThresholdISR(void);
+[v _ADCC_ThresholdISR `(v ~T0 @X0 0 ef ]
 "250 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f47k42.h: 250: __asm("STATUS_CSHAD equ 03880h");
 [; <" STATUS_CSHAD equ 03880h ;# ">
@@ -2277,14 +2281,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _INTERRUPT_InterruptManager ]
 [f ]
 "61
-[; ;mcc_generated_files/interrupt_manager.c: 61:     if(PIE3bits.TMR0IE == 1 && PIR3bits.TMR0IF == 1)
-[e $ ! && == -> . . _PIE3bits 0 7 `i -> 1 `i == -> . . _PIR3bits 0 7 `i -> 1 `i 2203  ]
+[; ;mcc_generated_files/interrupt_manager.c: 61:     if(PIE1bits.ADTIE == 1 && PIR1bits.ADTIF == 1)
+[e $ ! && == -> . . _PIE1bits 0 3 `i -> 1 `i == -> . . _PIR1bits 0 3 `i -> 1 `i 2203  ]
 "62
 [; ;mcc_generated_files/interrupt_manager.c: 62:     {
 {
 "63
-[; ;mcc_generated_files/interrupt_manager.c: 63:         TMR0_ISR();
-[e ( _TMR0_ISR ..  ]
+[; ;mcc_generated_files/interrupt_manager.c: 63:         ADCC_ThresholdISR();
+[e ( _ADCC_ThresholdISR ..  ]
 "64
 [; ;mcc_generated_files/interrupt_manager.c: 64:     }
 }

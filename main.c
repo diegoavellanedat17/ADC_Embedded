@@ -52,9 +52,7 @@ void main(void)
 {
     // Initialize the device
     SYSTEM_Initialize();
-    ADCC_Initialize();   
-    TMR0_Initialize();
-    INTCON0bits.GIE = 1;// Enable global interrupts
+
     INTERRUPT_Initialize ();
 
     // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
@@ -62,37 +60,16 @@ void main(void)
     // Use the following macros to:
 
     // Enable the Global Interrupts
-    //INTERRUPT_GlobalInterruptEnable();
+    INTERRUPT_GlobalInterruptEnable();
 
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
-    
-    LED_SetLow() ;
-
-    adc_result_t convertedValue;
-    TMR0_StartTimer();
-
-
+    //TMR0_StartTimer();
+   
+   ADCC_StartConversion(channel_ANA4);
     while (1)
     {
-      __delay_ms(500);
-      ADCC_StartConversion(channel_ANA4);
-      while(!ADCC_IsConversionDone());
-      convertedValue = ADCC_GetConversionResult();
-      //uint8_t timer_value = TMR0_ReadTimer();
-      printf("value ADC :  %d  \n",convertedValue);
-      
-      if(convertedValue > 2000){
-          
-          
-          LED_SetHigh() ;
-      }
-      else{
-        LED_SetLow() ;  
-      }
-      
-      
-      
+       
      }
         
         

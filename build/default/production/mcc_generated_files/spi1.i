@@ -1,4 +1,4 @@
-# 1 "mcc_generated_files/adcc.c"
+# 1 "mcc_generated_files/spi1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,276 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc_generated_files/adcc.c" 2
-# 51 "mcc_generated_files/adcc.c"
+# 1 "mcc_generated_files/spi1.c" 2
+# 47 "mcc_generated_files/spi1.c"
+# 1 "mcc_generated_files/spi1.h" 1
+# 54 "mcc_generated_files/spi1.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdio.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\musl_xc8.h" 1 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdio.h" 2 3
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\features.h" 1 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdio.h" 2 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 1 3
+
+
+
+
+
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 122 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned size_t;
+# 137 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long ssize_t;
+# 168 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 204 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __uint24 uint24_t;
+# 246 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+#pragma printf_check(printf) const
+#pragma printf_check(vprintf) const
+#pragma printf_check(sprintf) const
+#pragma printf_check(snprintf) const
+#pragma printf_check(vsprintf) const
+#pragma printf_check(vsnprintf) const
+
+int printf(const char *restrict, ...);
+int fprintf(FILE *restrict, const char *restrict, ...);
+int sprintf(char *restrict, const char *restrict, ...);
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+int scanf(const char *restrict, ...);
+int fscanf(FILE *restrict, const char *restrict, ...);
+int sscanf(const char *restrict, const char *restrict, ...);
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 54 "mcc_generated_files/spi1.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uintptr_t;
+# 142 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long intptr_t;
+# 158 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef signed char int8_t;
+
+
+
+
+typedef short int16_t;
+# 173 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 188 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 209 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 229 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 22 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 2 3
+
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+typedef int24_t int_fast24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+typedef uint24_t uint_fast24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/stdint.h" 1 3
+typedef int16_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint16_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 144 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 2 3
+# 55 "mcc_generated_files/spi1.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdbool.h" 1 3
+# 56 "mcc_generated_files/spi1.h" 2
+
+
+
+typedef enum {
+    SPI1_DEFAULT
+} spi1_modes_t;
+
+void SPI1_Initialize(void);
+_Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration);
+void SPI1_Close(void);
+uint8_t SPI1_ExchangeByte(uint8_t data);
+void SPI1_ExchangeBlock(void *block, size_t blockSize);
+void SPI1_WriteBlock(void *block, size_t blockSize);
+void SPI1_ReadBlock(void *block, size_t blockSize);
+void SPI1_WriteByte(uint8_t byte);
+uint8_t SPI1_ReadByte(void);
+# 47 "mcc_generated_files/spi1.c" 2
+
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -21,29 +289,10 @@ extern double __fpnormalize(double);
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdlib.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdlib.h" 2 3
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\features.h" 1 3
-# 10 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdlib.h" 2 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdlib.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int wchar_t;
-# 122 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned size_t;
-# 168 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 204 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef __uint24 uint24_t;
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdlib.h" 2 3
 
 
@@ -26585,642 +26834,104 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 51 "mcc_generated_files/adcc.c" 2
+# 48 "mcc_generated_files/spi1.c" 2
 
-# 1 "mcc_generated_files/adcc.h" 1
-# 55 "mcc_generated_files/adcc.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 1 3
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 127 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long uintptr_t;
-# 142 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long intptr_t;
-# 158 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef signed char int8_t;
 
+typedef struct {
+    uint8_t con0;
+    uint8_t con1;
+    uint8_t con2;
+    uint8_t baud;
+    uint8_t operation;
+} spi1_configuration_t;
 
 
 
-typedef short int16_t;
-# 173 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int32_t;
+static const spi1_configuration_t spi1_configuration[] = {
+    { 0x2, 0x40, 0x0, 0x0, 0 }
+};
 
-
-
-
-
-typedef long long int64_t;
-# 188 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long intmax_t;
-
-
-
-
-
-typedef unsigned char uint8_t;
-
-
-
-
-typedef unsigned short uint16_t;
-# 209 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long uint32_t;
-
-
-
-
-
-typedef unsigned long long uint64_t;
-# 229 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef unsigned long long uintmax_t;
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 2 3
-
-
-typedef int8_t int_fast8_t;
-
-typedef int64_t int_fast64_t;
-
-
-typedef int8_t int_least8_t;
-typedef int16_t int_least16_t;
-
-typedef int24_t int_least24_t;
-typedef int24_t int_fast24_t;
-
-typedef int32_t int_least32_t;
-
-typedef int64_t int_least64_t;
-
-
-typedef uint8_t uint_fast8_t;
-
-typedef uint64_t uint_fast64_t;
-
-
-typedef uint8_t uint_least8_t;
-typedef uint16_t uint_least16_t;
-
-typedef uint24_t uint_least24_t;
-typedef uint24_t uint_fast24_t;
-
-typedef uint32_t uint_least32_t;
-
-typedef uint64_t uint_least64_t;
-# 144 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/stdint.h" 1 3
-typedef int16_t int_fast16_t;
-typedef int32_t int_fast32_t;
-typedef uint16_t uint_fast16_t;
-typedef uint32_t uint_fast32_t;
-# 144 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 2 3
-# 55 "mcc_generated_files/adcc.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdbool.h" 1 3
-# 56 "mcc_generated_files/adcc.h" 2
-# 72 "mcc_generated_files/adcc.h"
-typedef uint16_t adc_result_t;
-
-typedef __uint24 uint24_t;
-# 89 "mcc_generated_files/adcc.h"
-typedef enum
-{
-    channel_ANA4 = 0x4,
-    channel_VSS = 0x3B,
-    channel_Temp = 0x3C,
-    channel_DAC1 = 0x3D,
-    channel_FVR_Buffer1 = 0x3E,
-    channel_FVR_Buffer2 = 0x3F
-} adcc_channel_t;
-# 131 "mcc_generated_files/adcc.h"
-void ADCC_Initialize(void);
-# 160 "mcc_generated_files/adcc.h"
-void ADCC_StartConversion(adcc_channel_t channel);
-# 190 "mcc_generated_files/adcc.h"
-_Bool ADCC_IsConversionDone(void);
-# 222 "mcc_generated_files/adcc.h"
-adc_result_t ADCC_GetConversionResult(void);
-# 253 "mcc_generated_files/adcc.h"
-adc_result_t ADCC_GetSingleConversion(adcc_channel_t channel);
-# 278 "mcc_generated_files/adcc.h"
-void ADCC_StopConversion(void);
-# 305 "mcc_generated_files/adcc.h"
-void ADCC_SetStopOnInterrupt(void);
-# 330 "mcc_generated_files/adcc.h"
-void ADCC_DischargeSampleCapacitor(void);
-# 356 "mcc_generated_files/adcc.h"
-void ADCC_LoadAcquisitionRegister(uint16_t);
-# 382 "mcc_generated_files/adcc.h"
-void ADCC_SetPrechargeTime(uint16_t);
-# 407 "mcc_generated_files/adcc.h"
-void ADCC_SetRepeatCount(uint8_t);
-# 435 "mcc_generated_files/adcc.h"
-uint8_t ADCC_GetCurrentCountofConversions(void);
-# 459 "mcc_generated_files/adcc.h"
-void ADCC_ClearAccumulator(void);
-# 484 "mcc_generated_files/adcc.h"
-uint24_t ADCC_GetAccumulatorValue(void);
-# 512 "mcc_generated_files/adcc.h"
-_Bool ADCC_HasAccumulatorOverflowed(void);
-# 537 "mcc_generated_files/adcc.h"
-uint16_t ADCC_GetFilterValue(void);
-# 565 "mcc_generated_files/adcc.h"
-uint16_t ADCC_GetPreviousResult(void);
-# 591 "mcc_generated_files/adcc.h"
-void ADCC_DefineSetPoint(uint16_t);
-# 617 "mcc_generated_files/adcc.h"
-void ADCC_SetUpperThreshold(uint16_t);
-# 643 "mcc_generated_files/adcc.h"
-void ADCC_SetLowerThreshold(uint16_t);
-# 670 "mcc_generated_files/adcc.h"
-uint16_t ADCC_GetErrorCalculation(void);
-# 697 "mcc_generated_files/adcc.h"
-void ADCC_EnableDoubleSampling(void);
-# 721 "mcc_generated_files/adcc.h"
-void ADCC_EnableContinuousConversion(void);
-# 745 "mcc_generated_files/adcc.h"
-void ADCC_DisableContinuousConversion(void);
-# 773 "mcc_generated_files/adcc.h"
-_Bool ADCC_HasErrorCrossedUpperThreshold(void);
-# 801 "mcc_generated_files/adcc.h"
-_Bool ADCC_HasErrorCrossedLowerThreshold(void);
-# 828 "mcc_generated_files/adcc.h"
-uint8_t ADCC_GetConversionStageStatus(void);
-# 845 "mcc_generated_files/adcc.h"
-void ADCC_SetADTIInterruptHandler(void (* InterruptHandler)(void));
-# 861 "mcc_generated_files/adcc.h"
-void ADCC_ThresholdISR(void);
-# 879 "mcc_generated_files/adcc.h"
-void ADCC_DefaultInterruptHandler(void);
-# 52 "mcc_generated_files/adcc.c" 2
-
-# 1 "mcc_generated_files/uart1.h" 1
-# 57 "mcc_generated_files/uart1.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 1 3
-
-
-
-
-
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-#pragma printf_check(printf) const
-#pragma printf_check(vprintf) const
-#pragma printf_check(sprintf) const
-#pragma printf_check(snprintf) const
-#pragma printf_check(vsprintf) const
-#pragma printf_check(vsnprintf) const
-
-int printf(const char *restrict, ...);
-int fprintf(FILE *restrict, const char *restrict, ...);
-int sprintf(char *restrict, const char *restrict, ...);
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-int scanf(const char *restrict, ...);
-int fscanf(FILE *restrict, const char *restrict, ...);
-int sscanf(const char *restrict, const char *restrict, ...);
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 57 "mcc_generated_files/uart1.h" 2
-# 75 "mcc_generated_files/uart1.h"
-typedef union {
-    struct {
-        unsigned perr : 1;
-        unsigned ferr : 1;
-        unsigned oerr : 1;
-        unsigned reserved : 5;
-    };
-    uint8_t status;
-}uart1_status_t;
-# 111 "mcc_generated_files/uart1.h"
-void UART1_Initialize(void);
-# 159 "mcc_generated_files/uart1.h"
-_Bool UART1_is_rx_ready(void);
-# 207 "mcc_generated_files/uart1.h"
-_Bool UART1_is_tx_ready(void);
-# 254 "mcc_generated_files/uart1.h"
-_Bool UART1_is_tx_done(void);
-# 302 "mcc_generated_files/uart1.h"
-uart1_status_t UART1_get_last_status(void);
-# 351 "mcc_generated_files/uart1.h"
-uint8_t UART1_Read(void);
-# 376 "mcc_generated_files/uart1.h"
-void UART1_Write(uint8_t txData);
-# 396 "mcc_generated_files/uart1.h"
-void UART1_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 414 "mcc_generated_files/uart1.h"
-void UART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 432 "mcc_generated_files/uart1.h"
-void UART1_SetErrorHandler(void (* interruptHandler)(void));
-# 53 "mcc_generated_files/adcc.c" 2
-
-
-int global_counter =0;
-
-
-
-void (*ADCC_ADTI_InterruptHandler)(void);
-
-
-
-
-
-void ADCC_Initialize(void)
+void SPI1_Initialize(void)
 {
 
+    SPI1CON0 = 0x02;
 
-    ADLTHL = 0x00;
+    SPI1CON1 = 0x40;
 
-    ADLTHH = 0x00;
+    SPI1CON2 = 0x00;
 
-    ADUTHL = 0x00;
+    SPI1CLK = 0x00;
 
-    ADUTHH = 0x00;
-
-    ADSTPTL = 0x00;
-
-    ADSTPTH = 0x00;
-
-    ADACCU = 0x00;
-
-    ADRPT = 0x08;
-
-    ADPCH = 0x00;
-
-    ADACQL = 0x00;
-
-    ADACQH = 0x00;
-
-    ADCAP = 0x00;
-
-    ADPREL = 0x00;
-
-    ADPREH = 0x00;
-
-    ADCON1 = 0x00;
-
-    ADCON2 = 0x34;
-
-    ADCON3 = 0x07;
-
-    ADSTAT = 0x00;
-
-    ADREF = 0x00;
-
-    ADACT = 0x04;
-
-    ADCLK = 0x00;
-
-    ADCON0 = 0x84;
-
-
-
-    PIR1bits.ADTIF = 0;
-
-    PIE1bits.ADTIE = 1;
-
-    ADCC_SetADTIInterruptHandler(ADCC_DefaultInterruptHandler);
+    SPI1BAUD = 0x00;
+    TRISCbits.TRISC3 = 0;
 }
 
-void ADCC_StartConversion(adcc_channel_t channel)
+_Bool SPI1_Open(spi1_modes_t spi1UniqueConfiguration)
 {
-
-    ADPCH = channel;
-
-
-    ADCON0bits.ADON = 1;
-
-
-    ADCON0bits.ADGO = 1;
-}
-
-_Bool ADCC_IsConversionDone(void)
-{
-
-    return ((unsigned char)(!ADCON0bits.ADGO));
-}
-
-adc_result_t ADCC_GetConversionResult(void)
-{
-
-    return ((adc_result_t)((ADRESH << 8) + ADRESL));
-}
-
-adc_result_t ADCC_GetSingleConversion(adcc_channel_t channel)
-{
-
-    ADPCH = channel;
-
-
-    ADCON0bits.ADON = 1;
-
-
-    ADCON0bits.ADCONT = 0;
-
-
-    ADCON0bits.ADGO = 1;
-
-
-
-    while (ADCON0bits.ADGO)
+    if(!SPI1CON0bits.EN)
     {
+        SPI1CON0 = spi1_configuration[spi1UniqueConfiguration].con0;
+        SPI1CON1 = spi1_configuration[spi1UniqueConfiguration].con1;
+        SPI1CON2 = spi1_configuration[spi1UniqueConfiguration].con2 | (0x1 | 0x2);
+        SPI1CLK = 0x00;
+        SPI1BAUD = spi1_configuration[spi1UniqueConfiguration].baud;
+        TRISCbits.TRISC3 = spi1_configuration[spi1UniqueConfiguration].operation;
+        SPI1CON0bits.EN = 1;
+        return 1;
     }
-
-
-
-    return ((adc_result_t)((ADRESH << 8) + ADRESL));
+    return 0;
 }
 
-void ADCC_StopConversion(void)
+void SPI1_Close(void)
 {
-
-    ADCON0bits.ADGO = 0;
+    SPI1CON0bits.EN = 0;
 }
 
-void ADCC_SetStopOnInterrupt(void)
+uint8_t SPI1_ExchangeByte(uint8_t data)
 {
-
-    ADCON3bits.ADSOI = 1;
+    SPI1TCNTL = 1;
+    SPI1TXB = data;
+    while(!PIR2bits.SPI1RXIF);
+    return SPI1RXB;
 }
 
-void ADCC_DischargeSampleCapacitor(void)
+void SPI1_ExchangeBlock(void *block, size_t blockSize)
 {
-
-    ADPCH = 0x3b;
-}
-
-void ADCC_LoadAcquisitionRegister(uint16_t acquisitionValue)
-{
-
-    ADACQH = (uint8_t) (acquisitionValue >> 8);
-    ADACQL = (uint8_t) acquisitionValue;
-}
-
-void ADCC_SetPrechargeTime(uint16_t prechargeTime)
-{
-
-    ADPREH = (uint8_t) (prechargeTime >> 8);
-    ADPREL = (uint8_t) prechargeTime;
-}
-
-void ADCC_SetRepeatCount(uint8_t repeatCount)
-{
-
-    ADRPT = repeatCount;
-}
-
-uint8_t ADCC_GetCurrentCountofConversions(void)
-{
-
-    return ADCNT;
-}
-
-void ADCC_ClearAccumulator(void)
-{
-
-    ADCON2bits.ADACLR = 1;
-}
-
-uint24_t ADCC_GetAccumulatorValue(void)
-{
-
-    return (((uint24_t)ADACCU << 16)+((uint24_t)ADACCH << 8) + ADACCL);
-}
-
-_Bool ADCC_HasAccumulatorOverflowed(void)
-{
-
-    return ADSTATbits.ADAOV;
-}
-
-uint16_t ADCC_GetFilterValue(void)
-{
-
-    return ((uint16_t)((ADFLTRH << 8) + ADFLTRL));
-}
-
-uint16_t ADCC_GetPreviousResult(void)
-{
-
-    return ((uint16_t)((ADPREVH << 8) + ADPREVL));
-}
-
-void ADCC_DefineSetPoint(uint16_t setPoint)
-{
-
-    ADSTPTH = (uint8_t) (setPoint >> 8);
-    ADSTPTL = (uint8_t) setPoint;
-}
-
-void ADCC_SetUpperThreshold(uint16_t upperThreshold)
-{
-
-    ADUTHH = (uint8_t) (upperThreshold >> 8);
-    ADUTHL = (uint8_t) (upperThreshold);
-}
-
-void ADCC_SetLowerThreshold(uint16_t lowerThreshold)
-{
-
-    ADLTHH = (uint8_t) (lowerThreshold >> 8);
-    ADLTHL = (uint8_t) lowerThreshold;
-}
-
-uint16_t ADCC_GetErrorCalculation(void)
-{
-
- return ((uint16_t)((ADERRH << 8) + ADERRL));
-}
-
-void ADCC_EnableDoubleSampling(void)
-{
-
-    ADCON1bits.ADDSEN = 1;
-}
-
-void ADCC_EnableContinuousConversion(void)
-{
-
-    ADCON0bits.ADCONT = 1;
-}
-
-void ADCC_DisableContinuousConversion(void)
-{
-
-    ADCON0bits.ADCONT = 0;
-}
-
-_Bool ADCC_HasErrorCrossedUpperThreshold(void)
-{
-
-    return ADSTATbits.ADUTHR;
-}
-
-_Bool ADCC_HasErrorCrossedLowerThreshold(void)
-{
-
-    return ADSTATbits.ADLTHR;
-}
-
-uint8_t ADCC_GetConversionStageStatus(void)
-{
-
-    return ADSTATbits.ADSTAT;
-}
-
-
-void ADCC_ThresholdISR(void)
-{
-
-    PIR1bits.ADTIF = 0;
-
-    if (ADCC_ADTI_InterruptHandler)
-        ADCC_ADTI_InterruptHandler();
-}
-
-void ADCC_SetADTIInterruptHandler(void (* InterruptHandler)(void)){
-    ADCC_ADTI_InterruptHandler = InterruptHandler;
-}
-void ADCC_DefaultInterruptHandler(void){
-
-
-
-    LATAbits.LATA5 = ~LATAbits.LATA5;
-
-    if(global_counter < 10){
-        global_counter ++;
+    uint8_t *data = block;
+    while(blockSize--)
+    {
+        SPI1TCNTL = 1;
+        SPI1TXB = *data;
+        while(!PIR2bits.SPI1RXIF);
+        *data++ = SPI1RXB;
     }
-
-    else{
-        global_counter = 0;
-         if(UART1_is_tx_ready())
-        {
+}
 
 
-
-
-
-
-
-            UART1_Write(ADFLTRH);
-            UART1_Write(ADFLTRL);
-
-        }
+void SPI1_WriteBlock(void *block, size_t blockSize)
+{
+    uint8_t *data = block;
+    while(blockSize--)
+    {
+        SPI1_ExchangeByte(*data++);
     }
+}
 
+void SPI1_ReadBlock(void *block, size_t blockSize)
+{
+    uint8_t *data = block;
+    while(blockSize--)
+    {
+        *data++ = SPI1_ExchangeByte(0);
+    }
+}
 
+void SPI1_WriteByte(uint8_t byte)
+{
+    SPI1TXB = byte;
+}
 
+uint8_t SPI1_ReadByte(void)
+{
+    return SPI1RXB;
 }
